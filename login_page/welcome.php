@@ -4,21 +4,9 @@
  * discord Rc#0440
 */
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "gestion de stock";
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
 
-?>
+include 'config.php';
 
-
-<?php
 
 session_start();
 
@@ -26,12 +14,10 @@ if (!isset($_SESSION['username'])) {
     header("Location: index.php");
 }
 
-?>
 
 
 
 
-<?php
 //ajout
 $mess="";
 $code=@$_POST['code'];
