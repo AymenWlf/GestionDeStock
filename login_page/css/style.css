@@ -1,0 +1,42 @@
+td.btns {
+  display: flex;
+  justify-content: space-around;
+}
+.btn {
+  padding: 0.5rem;
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-danger {
+  background-color: red;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+}
+
+.btn-warning {
+  background-color: orange;
+  color: white;
+}
+
+.btn-warning:hover {
+  background-color: white;
+  color: orange;
+  border: 1px solid orange;
+}
+
+.btn-success {
+  background-color: rgb(47, 171, 47);
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: white;
+  color: rgb(47, 171, 47);
+  border: 1px solid rgb(47, 171, 47);
+}

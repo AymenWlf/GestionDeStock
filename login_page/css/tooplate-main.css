@@ -10,7 +10,7 @@ https://www.tooplate.com/view/2113-earth
   50% {
     opacity: 1;
   }
-  
+
   100% {
     opacity: 0;
   }
@@ -33,7 +33,7 @@ https://www.tooplate.com/view/2113-earth
 .seq-preloader.seq-preloaded {
   opacity: 0;
   visibility: hidden;
-  transition: visibility 0s .5s, opacity .5s;
+  transition: visibility 0s 0.5s, opacity 0.5s;
 }
 
 .seq-preload-indicator {
@@ -54,11 +54,11 @@ https://www.tooplate.com/view/2113-earth
 }
 
 .seq-preload-circle-2 {
-  animation-delay: .15s;
+  animation-delay: 0.15s;
 }
 
 .seq-preload-circle-3 {
-  animation-delay: .3s;
+  animation-delay: 0.3s;
 }
 
 .seq-preload-indicator-fallback {
@@ -68,7 +68,7 @@ https://www.tooplate.com/view/2113-earth
 
 .seq-preload-indicator-fallback .seq-preload-circle {
   width: 8px;
-  height:8px;
+  height: 8px;
   background-color: #f4f4f4;
   border-radius: 100%;
   opacity: 1;
@@ -87,7 +87,6 @@ https://www.tooplate.com/view/2113-earth
   width: 16px;
   height: 16px;
 }
-
 
 /* MAIN CSS */
 
@@ -152,7 +151,7 @@ https://www.tooplate.com/view/2113-earth
 }
 
 html {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 body {
@@ -161,7 +160,7 @@ body {
 }
 
 nav {
-	top: 15%;
+  top: 15%;
   text-align: center;
   background: rgba(0, 0, 0, 0.75);
   position: fixed;
@@ -173,50 +172,50 @@ nav {
   font-size: 1rem;
 }
 nav em {
-	font-style: normal;
-	font-size: 10px;
-	text-transform: uppercase;
-	display: block;
-	margin-top: 15px;
-	color: #fff;
+  font-style: normal;
+  font-size: 10px;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 15px;
+  color: #fff;
 }
 
 nav ul li a {
-	text-align: center;
+  text-align: center;
 }
 
 nav ul {
-	position: relative;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-	text-align: left;
-	list-style-type: none;
-	height: 70%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
+  text-align: left;
+  list-style-type: none;
+  height: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-	-ms-flex-pack: distribute;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
 }
 nav ul li {
-	text-align: center;
-	margin: 5px 0px;
+  text-align: center;
+  margin: 5px 0px;
 }
-nav a, nav a:visited, nav a:active {
+nav a,
+nav a:visited,
+nav a:active {
   color: #fff;
 }
 nav a {
-	text-decoration: none!important;
-
+  text-decoration: none !important;
 }
 
 nav a::before {
-
   position: absolute;
   height: 0%;
   width: 0%;
@@ -226,21 +225,21 @@ nav a::before {
   z-index: -1;
 }
 .logo {
-	margin-top: 0px;
+  margin-top: 0px;
   top: 0;
   left: 0;
   z-index: 999999;
   position: fixed;
- 	display: inline-block;
+  display: inline-block;
   text-align: center;
-	background-color: #008d36;
-	height: 15%;
-	width: 15%;
+  background-color: #008d36;
+  height: 15%;
+  width: 15%;
 }
 .logo h1 {
   font-size: 19px;
   text-transform: uppercase;
-  font-weight:800;
+  font-weight: 800;
   color: #111;
   top: 50%;
   left: 50%;
@@ -272,15 +271,15 @@ nav a::before {
   top: 10%;
 }
 .content::-webkit-scrollbar {
-  display: none!important;
-  opacity: 0!important;
-  visibility: hidden!important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 /* Add a thumb */
 .content::-webkit-scrollbar-thumb {
-  display: none!important;
-  opacity: 0!important;
-  visibility: hidden!important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 .slides .slide {
   background-position: center center;
@@ -288,7 +287,6 @@ nav a::before {
   background-position: fixed;
 }
 .slides .slide:nth-child(1) {
-
 }
 .slides .slide:nth-child(2) {
   background-image: url(../images/about-bg.jpg);
@@ -304,7 +302,7 @@ nav a::before {
 }
 
 /* Slide 1 Stlye */
-#slider-wrapper{
+#slider-wrapper {
   max-width: 100%;
   width: 100%;
   height: 100%;
@@ -330,7 +328,7 @@ nav a::before {
   top: 0;
   left: 100%;
   width: 100%;
-  height:100%; 
+  height: 100%;
 }
 
 #thumbnail {
@@ -375,15 +373,10 @@ nav a::before {
   color: #008d36;
 }
 
-
-
-
-
-
 /* Slide 2 Style */
 .second-content {
-	top: 180%!important;
-	transform: translateY(-180%);
+  top: 180% !important;
+  transform: translateY(-180%);
 }
 #tabs {
   float: right;
@@ -413,7 +406,7 @@ nav a::before {
   text-transform: uppercase;
 }
 #tabs ul li span {
-  text-align: center; 
+  text-align: center;
   background-color: transparent;
   border: 3px solid #fff;
   color: #fff;
@@ -463,12 +456,10 @@ nav a::before {
   margin-bottom: 0px;
 }
 
-
-
 /* Slide 3 Style */
 .third-content {
-	top: 120%!important;
-	transform: translateY(-120%);
+  top: 120% !important;
+  transform: translateY(-120%);
 }
 .third-slide a {
   text-decoration: none;
@@ -508,7 +499,7 @@ nav a::before {
   display: inline-block;
 }
 .owl-dots .active span {
-  background-color: #faf5b2!important;
+  background-color: #faf5b2 !important;
 }
 .owl-dots .owl-dot span {
   background-color: #fff;
@@ -520,13 +511,11 @@ nav a::before {
   cursor: pointer;
 }
 
-
-
 /* Slide 4 Style */
 .fourth-content {
-	top: 140%!important;
+  top: 140% !important;
   height: 100%;
-	transform: translateY(-140%);
+  transform: translateY(-140%);
 }
 #contact {
   text-align: center;
@@ -534,7 +523,7 @@ nav a::before {
   max-width: 750px;
   margin-bottom: 100px;
   padding: 40px;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 #contact h2 {
   font-size: 29px;
@@ -547,7 +536,7 @@ nav a::before {
 #contact input,
 #contact textarea {
   padding-left: 15px;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid #fff;
   border-radius: 0px;
   height: 40px;
@@ -560,8 +549,8 @@ nav a::before {
   color: #fff;
   outline: none;
   box-shadow: none;
-  border: 1px solid rgba(250,245,178,1);
-  background-color: rgba(0,0,0,0.1);
+  border: 1px solid rgba(250, 245, 178, 1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 #contact textarea {
   height: 160px;
@@ -588,35 +577,30 @@ nav a::before {
   color: #1e1e1e;
 }
 
-
-
-
 /* Responsive Style */
 @media (max-width: 991px) {
-
   .slides .slide .content {
-	width: 100%;
-	height: 90%;
-	left: 0;
+    width: 100%;
+    height: 90%;
+    left: 0;
   }
   .second-content {
-	top: 250%!important;
-	transform: translateY(-250%);
+    top: 250% !important;
+    transform: translateY(-250%);
   }
   .third-content {
-	top: 140%!important;
-	transform: translateY(-140%);
+    top: 140% !important;
+    transform: translateY(-140%);
   }
   .fourth-content {
-	top: 220%!important;
-	transform: translateY(-220%);
+    top: 220% !important;
+    transform: translateY(-220%);
   }
   .logo h1 {
     display: none;
-
   }
   .logo h2 {
-  	margin-top: 0px;
+    margin-top: 0px;
     line-height: 100px;
     height: 100px;
     width: 15vw;
@@ -646,15 +630,15 @@ nav a::before {
     margin: 0px;
   }
   nav ul li img {
-	width: 35%;
+    width: 35%;
   }
   nav ul li em {
     display: none;
   }
   nav a {
-  	text-align: center;
-	  width: 60px;
-	  height: 60px;
+    text-align: center;
+    width: 60px;
+    height: 60px;
     line-height: 30px;
     display: inline-block;
   }
@@ -662,7 +646,6 @@ nav a::before {
     top: 140px;
   }
   .slide-caption h2 {
-      
     font-size: 45px;
     text-transform: uppercase;
     font-weight: 600;
@@ -731,5 +714,4 @@ nav a::before {
     margin-top: 0px;
     margin-bottom: 20px;
   }
-
 }

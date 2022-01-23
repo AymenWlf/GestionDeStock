@@ -4,39 +4,27 @@
  * discord Rc#0440
 */
 
-
-include 'config.php';
-
+require_once 'config.php';
 
 session_start();
 
+error_reporting(0);
+
+//------Pas de connexion !
 if (!isset($_SESSION['username'])) {
     header("Location: index.php");
 }
 
+//---------Ajout d'un article
+require_once 'ajoutArticle.php';
 
 
+//----------Suppression d'un article
+require_once 'suppArticle.php';
 
-
-//ajout
-$mess="";
-$code=@$_POST['code'];
-$nom=@$_POST['nom'];
-$prix=@$_POST['prix'];
-if(isset($_POST['bajout'])){
-    $exe1=mysqli_query($conn,"insert into produit values('$code','$nom','$prix')");
-    if($exe1){
-        $mess="Ajout réussie !!";
-    }
-    else
-        $mess="Echec ajout !!";
-}
-
+//----------Modification d'un article
+require_once 'modifArticle.php';
 ?>
-
-
-
-
 
 <html lang="en">
     
@@ -54,6 +42,7 @@ if(isset($_POST['bajout'])){
     <link rel="stylesheet" href="css/tooplate-main.css">
     <link rel="stylesheet" href="css/owl.css">
     <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="css/style.css">
 
 
 </head>
@@ -67,7 +56,7 @@ if(isset($_POST['bajout'])){
     
    
     
-    <br><br><br><br><br><br><br>
+    <br><br>
 
     <div class="logo">
         <h1>Gestion de Stock</h1>
@@ -86,89 +75,126 @@ if(isset($_POST['bajout'])){
     </nav>
     <div class="slides">
         <div class="slide" id="1">
+            <div id="add">
+                <h4 align="center">Ajoutez Votre Produits</h4>
+                <div align="center" >
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST"  >
+                        <br>
+                        <table align="">
+                            <tr><td></td><td><?php echo $mess; ?></td></tr>
 
-                    <h4 align="center">Ajoutez Votre Produits</h4>
-                    <div align="center" >
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST"  >
+                            <tr><td></td><td><strong>Nom produit</strong></td></tr>
+                            <tr><td></td><td><input type="text" name="nom" class="champ" size="25"></td></tr>
+                                
                             
-                            <table align="">
-                                <tr><td></td><td><?php echo $mess; ?></td></tr>
-                                
-                                <tr><td></td><td><strong >Code produit</strong></td></tr>
-                                
-                                <tr><td></td><td><input type="text" name="code" class="champ" size="25"  ></td></tr>
-                                 <br>
-                                 <br>
-                                
+                            <tr><td></td><td><strong>Prix unitaire</strong></td></tr>
+                            <tr><td></td><td><input type="number" name="prix" class="champ" size="25"></td></tr>
+                            
+                            <tr><td></td><td><strong>Description</strong></td></tr>
+                            <tr><td></td><td><input type="text" name="desc" class="champ" sire="50"></td></tr>
 
-                                <tr><td></td><td><strong>Nom produit</strong></td></tr>
-                                <tr><td></td><td><input type="text" name="nom" class="champ" size="25"></td></tr>
-                                 
-                                
-                                <tr><td></td><td><strong>Prix unitaire</strong></td></tr>
-                                <tr><td></td><td><input type="text" name="prix" class="champ" size="25"></td></tr>
+                            
+                            <tr><td></td><td><strong>Stock</strong></td></tr>
+                            <tr><td></td><td><input type="number" name="stock" class="champ" size="25"></td></tr>
+                            
+                            <tr><td></td><td><strong>Categorie</strong></td></tr>
+                            <tr><td></td>
+                                <td>
+                                    <select name="categorie" id="cat-select">
+                                        <?php 
+                                            $sql = 'SELECT * FROM categorie';
+                                            $rs = mysqli_query($conn,$sql);
+                                        ?>
+                                        <option value="">--Please choose an option--</option>
+                                        <?php while($row = mysqli_fetch_assoc($rs))
+                                        {
+                                            $nom = $row['nom'];
+                                            $id = $row['ID_categorie'];
+                                        ?>
+                                            <option value="<?php echo $id?>"><?php echo $nom?></option>
+                                        <?php
+                                        } 
+                                        ?>
+                                    </select>
+                                </td>
+                            </tr>
+                            
+                            
+                            <tr><td></td><td><strong>Fournisseur</strong></td></tr>
+                            <tr><td></td>
+                                <td>
+                                    <select name="fournisseur" id="four-select">
+                                        <?php 
+                                            $sql = 'SELECT * FROM fournisseur';
+                                            $rs = mysqli_query($conn,$sql);
+                                        ?>
+                                        <option value="">--Please choose an option--</option>
+                                        <?php while($row = mysqli_fetch_assoc($rs))
+                                        {
+                                            $nom = $row['nom'];
+                                            $prenom = $row['prenom'];
+                                            $id = $row['ID_fournisseur'];
+                                        ?>
+                                            <option value="<?php echo $id?> "><?php echo $nom?> <?php echo $prenom?></option>
+                                        <?php
+                                        } 
+                                        ?>
+                                    </select>
+                                </td>
+                            </tr>
 
-                            </table>
-                             <br>
-                                <br>
-                            <input type="submit" name="bajout" value="Ajouter" class="bouton"  >
-                            
-                            
-                        </form>
-                        <p><br></p>
+                        </table>
+                            <br>
+                            <br>
+                        <input type="submit" name="bajout" value="Ajouter" class="btn btn-success" >
                         
-                    </div>
-
-               
+                    </form>
+                    <p><br></p>
+                </div>
+            </div>
+            
         </div>
-
-
-
-
-
-
         <div class="slide" id="2">
             <h1>Votre Liste  </h1>
-            
             <br>
-            
-             
-            
-                
-            <?php 
-  
-	$rq=mysqli_query($conn,"select * from produit");
-	print'<div style="overflow-x:auto;">';
-	print' <center> <table border="1" id="tbfich" style="width:70% " > </center>';
-	print'<tr><th>Code produit</th><th>Nom produit</th><th>Prix unitaire</th></tr> ';
-   
-	while ($row = mysqli_fetch_assoc($rq)){
-	$codep=$row['codeprod'];
-	$nomp=$row['nomprod'];
-	$prix=$row['prix'];
-	print'<tr>';
-	print'<td>';
-	     echo $codep;
-	print'</td>';
-	
-	
-	print'<td>';
-	     echo 	$nomp;
-	print'</td>';
-	
-		print'<td>';
-	     echo 	$prix;
-	print'</td>';
-	
-	print'</tr>';
-		}
-	print'</table >';
-print'</div>';
-
-	?>
-            <tr>
-		<td>Code produit</td>';
-            </tr>
+            <?php $rq=mysqli_query($conn,"select * from article");?>
+            <div class="tableList">
+                <center><table border="1" id="tbfich" style="width:70%; " > 
+                    <tr>
+                        <th>Nom produit</th>
+                        <th>Stock</th>
+                        <th>-------</th>
+                    </tr>
+                <form method="POST"> 
+                    <?php 
+                        while ($row = mysqli_fetch_assoc($rq)){
+                    ?>
+                    <form method="post">
+                        <?php
+                            $id=$row['ID_article'];
+                            $nomp=$row['nom'];
+                            $stock=$row['nombre_en_stock'];
+                            print'<tr>';
+                            print'<td>';
+                                echo 	"<input type='text' name='nom' class='champ' size='25' value='$nomp'>";
+                            print'</td>';
+                        
+                            print'<td>';
+                                echo 	"<input type='number' name='stock' class='champ' size='25' value='$stock'>";
+                            print'</td>';
+                            print'<td class="btns">';
+                        ?>
+                        <button type="submit" name="delete" class="btn btn-danger" value="<?php echo $id ?>"> Supprimer</button>
+                        <button type="submit" name="modif" class="btn btn-warning" value="<?php echo $id ?>" > Appliquer</a>
+                        <?php
+                            print'</td>';
+                            print'</tr>';
+                            }
+                        ?>
+                    </form>   
+                </form>
+                </table></center>
+            </div>
         </div>
 
 
@@ -176,6 +202,7 @@ print'</div>';
 
         <div class="slide" id="3">
             <p> hetresdffffffffffffffffffffffffffffffffffffffffffffffffffffffffff  </p>
+            
         </div>
 
 
@@ -192,8 +219,11 @@ print'</div>';
     <script src="js/owl.js"></script>
     <script src="js/accordations.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     
     </div>
+    <script>
+    </script>
     </body>
 </html>

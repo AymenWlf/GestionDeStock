@@ -3,6 +3,6 @@
 session_start();
 session_destroy();
 
-header("Location: http://localhost/myprojet/index.html");
+header("Location: ../myprojet/index.html");
 
 ?>
